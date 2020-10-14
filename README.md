@@ -18,3 +18,29 @@ For this project I used the [Food Security Data for 2019](https://www.census.gov
 
 ## Executive Summary
 
+The data set I had choosen was from the Census so I knew there would be a lot of data cleaning involved. All of the columns were labeled with identifying codes for each question and all responses were labeled with inentifying codes. With extensive reading of the data dictionary, I was able to drop any columns that were different variations of the same question while keeping the main question, converted all values back to their original values, as well as renamed some columns for easier readability. The data frame started out with over 500 columns and over 138,000 rows. I made the decision for modeling to drop and person that was under the age of 16 as well as multiple people questioned from the same household. I felt this was a good decision for my specific model since I was looking out food insecurity and the factors that correlate with the issue at hand. By keeping in the family income, number of persons in household, and the main person questioned from each household I knew that dropping duplicated households would not affect my model too much.
+
+Extensive exploratory data analysis was conducted on the data set to help me fully understand the data in hand. First I did an analysis based on location categories which included regions, states, and if the person lived in a metropolitan area or not. There was a pretty even split across the board given the different population sizes of cities and states for folks who had experienced food insecurity at any point in the year of 2019. Next an aga analysis was performed to see if any age group farred worse than another and again, it was pretty even across the board given that most folks interviewed as main person in household were in the age range of 20-70 years old. Next, I explored the household make-up and found that a majority of the folks interviewed were from a 1 or 2 person households as well as family incomes of $100,000-$150,000 made up the majority of family income for folks interviewed. In addition, a majority of folks interviewed (82% to be exact) were white. These findings were interesting to me because it told me that this data set is not all that diverse or a good representation of the population.
+
+The modeling process began with the question of can I predict whether or not someone will be food insecure based on the data. To answer this question, multiple classification models were ran which included Logistic Regression, Decision Trees, Bagged Decision trees, Random Forest, Support Vector Machines, a Histogram Gradient Boosting Classifier, as well as Principal Component Analysis(PCA). Before running the models I did the preprocessing steps on target encoding with a function based off of [this article](https://maxhalford.github.io/blog/target-encoding/) by Max Halford and then scaled the data for the models that would require the use of scaled data. All of the models performed relatively well by using a gridsearch with scores over 90% and minimal overfitting/underfitting occuring with the exception of a Logistic Regression that was run with PCA which scored around 80%. Though a lot of my models scored well, due to this being a classification problem, I wanted to look for the model that minimized the false negatives to the best of it's ability and still have a decent score. The random forest model fit this criteria with a modeling score of 0.967 and 0.952 for training and testing data respectively, 610 misclassified as being food secure but were food insecure, 161 misclassified as being food insecure but were food secure, and an f-1 score of 0.97 for food security and 0.85 for food insecurity. 
+
+## Requirements
+
+- Python 3
+- To do Target Encoding without a function:
+```
+pip install category_encoders
+```
+``` python
+from category_encoders import TargetEncoder
+```
+- To do the histogram gradient boosting classifier:
+``` python
+from sklearn.experimental import enable_hist_gradient_boositng
+
+from sklearn.ensemble import HistGradientBoostingClassifier
+```
+
+## Next Steps
+
+The next steps I would take for this project would be to find more diverse data from 2019 to plug into the model, gather data from 2020 to see the difference between food security and food insecurity from the 2 years, and then deploy the model so that policy makers could get future predictions in order to proactively fight to end food insecurity and bridge the meal gap.
