@@ -26,7 +26,7 @@ The modeling process began with the question of can I predict whether or not som
 
 ## Requirements
 
-- Python 3
+- Python 3.8.3
 - To do Target Encoding without a function:
 ```
 pip install category_encoders
