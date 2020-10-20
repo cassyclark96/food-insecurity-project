@@ -14,7 +14,7 @@
 
 ## Data 
 
-For this project I used the [Food Security Data for 2019](https://www.census.gov/data/datasets/time-series/demo/cps/cps-supp_cps-repwgt/cps-food-security.html) from the Census Current Population Survey Food Security file. A detailed data dictionary for the original data set can be found [here](https://www2.census.gov/programs-surveys/cps/techdocs/cpsdec19.pdf).
+For this project I used the [Food Security Data for 2019](https://www.census.gov/data/datasets/time-series/demo/cps/cps-supp_cps-repwgt/cps-food-security.html) from the Census Current Population Survey Food Security file. A detailed data dictionary for the original data set can be found [here](https://www2.census.gov/programs-surveys/cps/techdocs/cpsdec19.pdf). If you wanted to download this project you would first need to download the original data from the link provided as the original data is too large to store on github but the cleaned version is available for noteboks 3, 4, and 5.
 
 ## Executive Summary
 
